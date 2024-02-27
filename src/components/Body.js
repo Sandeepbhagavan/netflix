@@ -6,6 +6,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
 import { useEffect } from 'react';
+import { app } from '../utils/firebase';
 
 const Body = () => {
     const dispath=useDispatch();
@@ -22,7 +23,7 @@ const Body = () => {
     useEffect(()=>{
         
 
-const auth = getAuth();
+const auth = getAuth(app);
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const {uid,email,displayName} = user;

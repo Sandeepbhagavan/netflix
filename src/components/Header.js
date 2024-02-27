@@ -2,13 +2,14 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getAuth, signOut } from "firebase/auth";
 import { useSelector } from 'react-redux';
+import { app } from '../utils/firebase';
 
 const Header = () => {
     const navigate=useNavigate();
     const user=useSelector((store)=>store.user)
     const signOutButton=()=>{
 
-const auth = getAuth();
+const auth = getAuth(app);
 signOut(auth).then(() => {
     navigate("/")
 }).catch((error) => {
