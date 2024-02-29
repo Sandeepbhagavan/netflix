@@ -12,7 +12,8 @@ const VideoBackGround = ({movieId}) => {
         //console.log(json)
         
         const videoTrailer=json.results.filter((video)=>video.type==="Trailer")
-        const filteredTrailer=videoTrailer.length?videoTrailer[1]:json.results[0]
+        console.log(videoTrailer)
+        const filteredTrailer=videoTrailer.length?videoTrailer[0]:json.results[0]
         //console.log(filteredTrailer)
         dispatch(addTrailerVideo(filteredTrailer))
         
